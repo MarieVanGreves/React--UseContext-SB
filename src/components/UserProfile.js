@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../contexts/UserContext';
 
 function UserProfile() {
+  const { users, setUsers } = useContext(UserContext);
+
   return (
     <>
-      <div>User is </div>
+      <div>User is: </div>
 
-      <button>click to change user status </button>
+      {users.isOnline}
+      <button onClick={() => setUsers(users)}>
+        click to change user status
+      </button>
     </>
   );
 }
